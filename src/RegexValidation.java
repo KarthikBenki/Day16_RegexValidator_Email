@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class RegexValidation {
@@ -14,7 +15,13 @@ public class RegexValidation {
 
     }
     public static void main(String[] args) {
-        boolean regexCheck = isValid("^[a-z]{1,10}[._+-]?[a-z]{1,10}?[\\@][a-z]{1,10}[\\.][a-z]{1,4}([\\.][a-z]{2})?$","karthik.benki@bridgelabz.co.in");
-        System.out.println(regexCheck);
+        while(true) {
+            System.out.println("Enter the emails to test\n");
+            Scanner scanner = new Scanner(System.in);
+            String email = scanner.next();
+            boolean regexCheck = isValid("^(?=.{1,64}@)[A-Za-z0-9\\+_-]+(\\.[A-Za-z0-9\\+_-]+)*@"
+                    + "[^-][A-Za-z0-9\\+-]+(\\.[A-Za-z0-9\\+-]+)*(\\.[A-Za-z]{2,})$", email);
+            System.out.println(regexCheck);
+        }
     }
 }
